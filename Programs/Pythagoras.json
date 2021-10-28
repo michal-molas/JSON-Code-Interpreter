@@ -1,0 +1,149 @@
+{
+  "type": "Block",
+  "insts": [
+    {
+      "type": "Assign",
+      "name": "a",
+      "value": {
+        "type": "Num",
+        "value": 1
+      }
+    },
+    {
+      "type": "Assign",
+      "name": "b",
+      "value": {
+        "type": "Num",
+        "value": 1
+      }
+    },
+    {
+      "type": "Assign",
+      "name": "c_sq",
+      "value": {
+        "type": "Add",
+        "arg1": {
+          "type": "Mul",
+          "arg1": {
+            "type": "Var",
+            "name": "a"
+          },
+          "arg2": {
+            "type": "Var",
+            "name": "a"
+          }
+        },
+        "arg2": {
+          "type": "Mul",
+          "arg1": {
+            "type": "Var",
+            "name": "b"
+          },
+          "arg2": {
+            "type": "Var",
+            "name": "b"
+          }
+        }
+      }
+    },
+    {
+      "type": "Assign",
+      "name": "c",
+      "value": {
+        "type": "Var",
+        "name": "c_sq"
+      }
+    },
+    {
+      "type": "While",
+      "cond":{
+        "type": "Block",
+        "insts": [
+          {
+            "type": "Assign",
+            "name": "c_guess",
+            "value": {
+              "type": "Var",
+              "name": "c"
+            }
+          },
+          {
+            "type": "Assign",
+            "name": "c",
+            "value": {
+              "type": "Mul",
+              "arg1": {
+                "type": "Num",
+                "value": 0.5
+              },
+              "arg2": {
+                "type": "Add",
+                "arg1": {
+                  "type": "Var",
+                  "name": "c_guess"
+                },
+                "arg2": {
+                  "type": "Div",
+                  "arg1": {
+                    "type": "Var",
+                    "name": "c_sq"
+                  },
+                  "arg2": {
+                    "type": "Var",
+                    "name": "c_guess"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "Or",
+            "arg1": {
+              "type": ">=",
+              "arg1": {
+                "type": "Sub",
+                "arg1": {
+                  "type": "Var",
+                  "name": "c"
+                },
+                "arg2": {
+                  "type": "Var",
+                  "name": "c_guess"
+                }
+              },
+              "arg2": {
+                "type": "Num",
+                "value": 0.01
+              }
+            },
+            "arg2": {
+              "type": "<=",
+              "arg1": {
+                "type": "Sub",
+                "arg1": {
+                  "type": "Var",
+                  "name": "c"
+                },
+                "arg2": {
+                  "type": "Var",
+                  "name": "c_guess"
+                }
+              },
+              "arg2": {
+                "type": "Num",
+                "value": -0.01
+              }
+            }
+          }
+        ]
+      },
+      "block": {
+        "type": "True"
+      }
+    },
+    {
+      "type": "Var",
+      "name": "c"
+    }
+  ]
+}

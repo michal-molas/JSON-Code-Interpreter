@@ -1,0 +1,151 @@
+{
+    "type":"Block",
+    "insts": [
+
+        {
+            "type":"Assign",
+            "name": "iter",
+            "value": {
+                "type":"Num",
+                "value":100000
+            }
+        },
+        {
+            "type":"Assign",
+            "name": "sum",
+            "value": {
+                "type":"False"
+            }
+        },
+        {
+            "type":"Assign",
+            "name": "odd",
+            "value": {
+                "type":"Num",
+                "value":1
+            }
+        },
+        {
+            "type":"Assign",
+            "name": "plus_minus",
+            "value": {
+                "type":"True"
+            }
+        },
+        {
+            "type": "While",
+            "cond": {
+                "type": ">=",
+                "arg1":{
+                    "type":"Var",
+                    "name":"iter"
+                },
+                "arg2":{
+                    "type":"False"
+                }
+            },
+            "block": {
+                "type":"Block",
+                "insts":[
+                    {
+                        "type": "Assign",
+                        "name":"iter",
+                        "value": {
+                            "type":"Sub",
+                            "arg1":{
+                                "type":"Var",
+                                "name":"iter"
+                            },
+                            "arg2":{
+                                "type":"Num",
+                                "value":1
+                            }
+                        }
+                    },
+                    {
+                        "type": "Assign",
+                        "name":"sum",
+                        "value": {
+                            "type":"If",
+                            "cond": {
+                                "type":"Var",
+                                "name":"plus_minus"
+                            },
+                            "trueBlock": {
+                                "type":"Add",
+                                "arg1":{
+                                    "type":"Var",
+                                    "name":"sum"
+                                },
+                                "arg2":{
+                                    "type":"Div",
+                                    "arg1": {
+                                        "type":"True"
+                                    },
+                                    "arg2": {
+                                        "type":"Var",
+                                        "name":"odd"
+                                    }
+                                }
+                            },
+                            "falseBlock": {
+                                "type":"Sub",
+                                "arg1":{
+                                    "type":"Var",
+                                    "name":"sum"
+                                },
+                                "arg2":{
+                                    "type":"Div",
+                                    "arg1": {
+                                        "type":"True"
+                                    },
+                                    "arg2": {
+                                        "type":"Var",
+                                        "name":"odd"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "Assign",
+                        "name":"odd",
+                        "value": {
+                            "type":"Add",
+                            "arg1":{
+                                "type":"Var",
+                                "name":"odd"
+                            },
+                            "arg2":{
+                                "type":"Num",
+                                "value":2
+                            }
+                        }
+                    },
+                    {
+                        "type":"Assign",
+                        "name": "plus_minus",
+                        "value": {
+                            "type":"Not",
+                            "arg": {
+                                "type":"Var",
+                                "name":"plus_minus"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"Mul",
+            "arg1":{
+                "type":"Num",
+                "value":4
+            },
+            "arg2": {
+                "type":"Var",
+                "name":"sum"
+            }
+        }
+    ]
+}

@@ -1,0 +1,143 @@
+{
+  "type": "Block",
+  "insts": [
+    {
+      "type": "Assign",
+      "name": "x",
+      "value": {
+        "type": "Num",
+        "value": 2.0
+      }
+    },
+    {
+      "type": "Assign",
+      "name": "terms",
+      "value": {
+        "type": "Num",
+        "value": 15
+      }
+    },
+    {
+      "type": "Assign",
+      "name": "x_to_n",
+      "value": {
+        "type": "Num",
+        "value": 1
+      }
+    },
+    {
+      "type": "Assign",
+      "name": "fact",
+      "value": {
+        "type": "Num",
+        "value": 1
+      }
+    },
+    {
+      "type": "Assign",
+      "name": "e",
+      "value": {
+        "type": "Num",
+        "value": 1
+      }
+    },
+    {
+      "type": "Assign",
+      "name": "n",
+      "value": {
+        "type": "Num",
+        "value": 1
+      }
+    },
+    {
+      "type": "While",
+      "cond": {
+        "type": "<",
+        "arg1": {
+          "type": "Var",
+          "name": "n"
+        },
+        "arg2": {
+          "type": "Var",
+          "name": "terms"
+        }
+      },
+      "block": {
+        "type": "Block",
+        "insts": [
+          {
+            "type": "Assign",
+            "name": "x_to_n",
+            "value": {
+              "type": "Mul",
+              "arg1": {
+                "type": "Var",
+                "name": "x_to_n"
+              },
+              "arg2": {
+                "type": "Var",
+                "name": "x"
+              }
+            }
+          },
+          {
+            "type": "Assign",
+            "name": "fact",
+            "value": {
+              "type": "Mul",
+              "arg1": {
+                "type": "Var",
+                "name": "fact"
+              },
+              "arg2": {
+                "type": "Var",
+                "name": "n"
+              }
+            }
+          },
+          {
+            "type": "Assign",
+            "name": "n",
+            "value": {
+              "type": "Add",
+              "arg1": {
+                "type": "Var",
+                "name": "n"
+              },
+              "arg2": {
+                "type": "Num",
+                "value": "1"
+              }
+            }
+          },
+          {
+            "type": "Assign",
+            "name": "e",
+            "value": {
+              "type": "Add",
+              "arg1": {
+                "type": "Var",
+                "name": "e"
+              },
+              "arg2": {
+                "type": "Div",
+                "arg1": {
+                  "type": "Var",
+                  "name": "x_to_n"
+                },
+                "arg2": {
+                  "type": "Var",
+                  "name": "fact"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Var",
+      "name": "e"
+    }
+  ]
+}
