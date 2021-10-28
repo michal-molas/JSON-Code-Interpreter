@@ -266,3 +266,6 @@ and adding
 - com.squareup.moshi-adapter
 
 You might have to restart IntelliJ after that.
+
+The main function is in the Test.java file.\
+In order to run a program put its name without extension into the string - filename.
