@@ -232,3 +232,10 @@ The result is 1.
 ```
 The result is 0.
 
+### Important information
+- Every instruction returns a value, so every instruction can be put everywhere as an instruction.\
+- Every instruction (except for While and If, whose behaviour i have described above as well as And and Or)\
+will perform all of the instructions it contains exactly once.\
+The And and Or instructions might not perform their second instruction if the result is known after the first one (lazy evaluation).\
+- The instructions described as conditions will be performed before checking their value.
+- All numerical values are treated as float numbers, so checking equallity may somtimes cause problems, due to floating point precision.
