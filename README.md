@@ -233,9 +233,36 @@ The result is 1.
 The result is 0.
 
 ### Important information
-- Every instruction returns a value, so every instruction can be put everywhere as an instruction.\
+- Every instruction returns a value, so every instruction can be put everywhere as an instruction.
 - Every instruction (except for While and If, whose behaviour i have described above as well as And and Or)\
 will perform all of the instructions it contains exactly once.\
-The And and Or instructions might not perform their second instruction if the result is known after the first one (lazy evaluation).\
+The And and Or instructions might not perform their second instruction if the result is known after the first one (lazy evaluation).
 - The instructions described as conditions will be performed before checking their value.
 - All numerical values are treated as float numbers, so checking equallity may somtimes cause problems, due to floating point precision.
+- The code must be enclosed in curly bracets.
+- The printed result will be the result of the last instruction,\
+so for example you can start with a Block and put a Var with the result as the last instruction.
+
+## Other functionality
+The program also makes a compilable file in java (puts it into ProgramsJava folder),\
+which performs the same actions as the json code and gives the same results.\
+
+It also creates a copy of the original json and puts it into CreatedPrograms folder.
+
+## Example programs
+In the folder Programs, there are a few example programs written in json.
+- EToX.json - calculates e^x
+- GCD.json - calculates gratest common divisor of two numbers
+- Pythagoras.json - calculates c, where c^2 = a^2 + b^2, given a and b
+- PiLeibnitz.json - calculates the value of pi with Leibniz formula
+- Fibonacci.json - calculates n-th Fibonacci number
+
+## How to run
+The program uses moshi (https://github.com/square/moshi) for the json operations.\
+The easiest way to run is be using IntelliJ and going to\
+File -> ProjectStructure -> Libraries\
+and adding
+- com.squareup.moshi
+- com.squareup.moshi-adapter
+
+You might have to restart IntelliJ after that.
